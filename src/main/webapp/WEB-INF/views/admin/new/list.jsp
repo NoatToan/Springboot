@@ -11,8 +11,68 @@
 		<title>Danh sách bài viết</title>
 	</head>
 
-	<body>
-		<div class="main-content">
+
+<div class="card mb-3">
+          <div class="card-header">
+            <i class="fas fa-table"></i>
+            Data Table Example</div>
+          <div class="card-body">
+            <div class="table-responsive">
+              <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+              <div class="row">
+
+              		<div class="col-sm-12 col-md-6">
+
+              		</div>
+              		</div>
+              		<div class="row">
+              		<div class="col-sm-12">
+              		<table class="table table-bordered dataTable" id="dataTable" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;">
+                <thead>
+                  <tr role="row">
+                  <th class="sorting_asc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 259px;"></th>
+                  <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 393px;">Tên bài viết</th>
+                  <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending" style="width: 193px;">Mô tả ngắn</th>
+                  <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Age: activate to sort column ascending" style="width: 99px;">Trạng thái hiển thị</th>
+                  <th class="sorting" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Start date: activate to sort column ascending" style="width: 188px;">Thao tác</th>
+
+                  </tr>
+                </thead>
+                <tfoot>
+                  <tr>
+                  <th rowspan="1" colspan="1"></th>
+                  <th rowspan="1" colspan="1">Tên bài viết</th>
+                  <th rowspan="1" colspan="1">Mô tả ngắn</th>
+                  <th rowspan="1" colspan="1">Trạng thái hiển thị</th>
+                  <th rowspan="1" colspan="1">Thao tác</th>
+
+                  </tr>
+                </tfoot>
+				<tbody>
+					<c:forEach var="item" items="${model.listResult}">
+						<tr>
+							<td><input type="checkbox" id="checkbox_${item.id}" value="${item.id}"></td>
+							<td>${item.title}</td>
+							<td>${item.shortDescription}</td>
+							<td></td>
+							<td>
+								<c:url var="updateNewURL" value="/quan-tri/bai-viet/chinh-sua">
+									<c:param name="id" value="${item.id}"/>															
+								</c:url>																
+								<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
+								   title="Cập nhật bài viết" href='${updateNewURL}'><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+								</a>
+							</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+              </table>
+              </div>
+              </div>
+             </div>
+          </div>
+          <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
+        </div>
 		<form action="<c:url value='/quan-tri/bai-viet/danh-sach'/>" id="formSubmit" method="get">
 			
 				<div class="main-content-inner">
@@ -55,34 +115,15 @@
 										</div>
 									</div>
 								</div>
-								<div class="row">
-									<div class="col-xs-12">
+								<div class="">
+									<div class="">
 										<div class="table-responsive">
 											<table class="table table-bordered">
 												<thead>
-													<tr>
-														<th><input type="checkbox" id="checkAll"></th>
-														<th>Tên bài viết</th>
-														<th>Mô tả ngắn</th>
-														<th>Thao tác</th>
-													</tr>
+
 												</thead>
 												<tbody>
-													<c:forEach var="item" items="${model.listResult}">
-														<tr>
-															<td><input type="checkbox" id="checkbox_${item.id}" value="${item.id}"></td>
-															<td>${item.title}</td>
-															<td>${item.shortDescription}</td>
-															<td>
-																<c:url var="updateNewURL" value="/quan-tri/bai-viet/chinh-sua">
-																	<c:param name="id" value="${item.id}"/>															
-																</c:url>																
-																<a class="btn btn-sm btn-primary btn-edit" data-toggle="tooltip"
-																   title="Cập nhật bài viết" href='${updateNewURL}'><i class="fa fa-pencil-square-o" aria-hidden="true"></i>
-																</a>
-															</td>
-														</tr>
-													</c:forEach>
+
 												</tbody>
 											</table>
 											<ul class="pagination" id="pagination"></ul>	
@@ -96,7 +137,7 @@
 					</div>
 				</div>
 		</form>
-		</div>
+
 		<!-- /.main-content -->
 		<script>
 			var totalPages = ${model.totalPage};
@@ -150,5 +191,5 @@
 		        });
 		    }
 		</script>
-	</body>
+
 	</html>

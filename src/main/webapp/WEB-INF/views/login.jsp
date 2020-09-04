@@ -2,17 +2,37 @@
 	pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp"%>	
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Đăng nhập</title>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin - Login</title>
+
+
+
+
+
+  <!-- Custom fonts for this template-->
+	<link rel="stylesheet" href="<c:url value='/template/admin/css/sb-admin.css' />" />
+    <link rel="stylesheet" href="<c:url value='/template/admin/vendor/fontawesome-free/css/all.min.css' />" />
+    
+    
+ 
 </head>
-<body>
-	<div class="container">
-		<!-- <h1 class="form-heading">login Form</h1> -->
-		<div class="login-form">
-			<div class="main-div">
-				<c:if test="${param.incorrectAccount != null}">
+
+<body class="bg-dark">
+
+  <div class="container">
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header">Login</div>
+      <div class="card-body">
+      		<c:if test="${param.incorrectAccount != null}">
 					<div class="alert alert-danger">	
 							Username or password incorrect
 					</div>
@@ -21,19 +41,47 @@
 					<div class="alert alert-danger">	
 							you Not authorize
 					</div>
-				</c:if>
-				<form action="j_spring_security_check" id="formLogin" method="post">
-					<div class="form-group">
-						<input type="text" class="form-control" id="userName" name="j_username" placeholder="Tên đăng nhập">
-					</div>
+			</c:if>
+        <form action="j_spring_security_check" id="formLogin" method="post">
+          <div class="form-group">
+            <div class="form-label-group">
+              <input type="text" class="form-control" id="userName" name="j_username" placeholder="Tên đăng nhập" placeholder="Email address" required="required" autofocus="autofocus">
+              <label for="inputEmail">Email address</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-label-group">
 
-					<div class="form-group">
-						<input type="password" class="form-control" id="password" name="j_password" placeholder="Mật khẩu">
-					</div>
-					<button type="submit" class="btn btn-primary" >Đăng nhập</button>
-				</form>
-			</div>
-		</div>
-	</div>
+			<input type="password" class="form-control" id="password" name="j_password" placeholder="Mật khẩu"  required="required">
+              <label for="inputPassword">Password</label>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="checkbox">
+              <label>
+                <input type="checkbox" value="remember-me">
+                Remember Password
+              </label>
+            </div>
+          </div>
+        
+       <button type="submit" class="btn btn-primary" >Đăng nhập</button>
+        </form>
+        <div class="text-center">
+          <a class="d-block small mt-3" href="register.html">Register an Account</a>
+          <a class="d-block small" href="forgot-password.html">Forgot Password?</a>
+        </div>
+      </div>
+    </div>
+   
+  </div>
+
+
+
+   <!-- Bootstrap core JavaScript-->
+    <script src="<c:url value='/template/admin/vendor/jquery/jquery.min.js' />"></script>
+    <script src="<c:url value='/template/admin/vendor/bootstrap/js/bootstrap.bundle.min.js' />"></script>
+ 	<script src="<c:url value='/template/admin/vendor/jquery-easing/jquery.easing.min.js' />"></script>
 </body>
+
 </html>
