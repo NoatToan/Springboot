@@ -4,19 +4,16 @@
 <html>
 <head>
 	<title><dec:title default="Trang chủ" /></title>
-	
-	<link rel="stylesheet" href="<c:url value='/template/admin/assets/css/bootstrap.min.css' />" />
-    <link rel="stylesheet" href="<c:url value='/template/admin/font-awesome/4.5.0/css/font-awesome.min.css' />" />
-    <link rel="stylesheet" href="<c:url value='/template/admin/assets/css/ace.min.css' />" class="ace-main-stylesheet" id="main-ace-style" />
-    <script src="<c:url value='/template/admin/assets/js/ace-extra.min.js' />"></script>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type='text/javascript' src='<c:url value="/template/admin/js/jquery-2.2.3.min.js" />'></script>
-    <script src="<c:url value='/template/admin/assets/js/jquery.2.1.1.min.js' />"></script>
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+    	
+    	<link rel="stylesheet" href="<c:url value='/template/admin/vendor/fontawesome-free/css/all.min.css' />" />
+    <link rel="stylesheet" href="<c:url value='/template/admin/vendor/datatables/dataTables.bootstrap4.css' />" />
+ <link rel="stylesheet" href="<c:url value='/template/admin/css/sb-admin.css' />" />
     
+
+	  
+	  
+	  
     <!-- sweetalert -->
     <script src="<c:url value='/template/admin/sweetalert/sweetalert2.min.js' />"></script>
     <link rel="stylesheet" href="<c:url value='/template/admin/sweetalert/sweetalert2.min.css' />" />
@@ -25,16 +22,19 @@
 	<!-- header -->
     <%@ include file="/common/admin/header.jsp" %>
     <!-- header -->
-	
-	<div class="main-container" id="main-container">
+	<div id="wrapper">
+
 		<script type="text/javascript">
 				try{ace.settings.check('main-container' , 'fixed')}catch(e){}
 		</script>
 		<!-- header -->
     	<%@ include file="/common/admin/menu.jsp" %>
     	<!-- header -->
-		
-		<dec:body/>
+		<div id="content-wrapper">
+	      	<div class="container-fluid">
+				<dec:body/>
+			</div>
+		</div>
 		
 		<!-- footer -->
     	<%@ include file="/common/admin/footer.jsp" %>
@@ -45,20 +45,27 @@
 		</a>
 	</div>
 	
-	<script src="<c:url value='/template/admin/paging/jquery.twbsPagination.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/bootstrap.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/jquery-ui.custom.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/jquery.ui.touch-punch.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/jquery.easypiechart.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/jquery.sparkline.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/jquery.flot.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/jquery.flot.pie.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/jquery.flot.resize.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/ace-elements.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/ace.min.js' />"></script>
-	<script src="<c:url value='/template/admin/assets/js/bootstrap.min.js'/>"></script>
+
+
+			  <!-- Bootstrap core JavaScript-->
+			  <script src="<c:url value='/template/admin/vendor/jquery/jquery.min.js'/>"></script>
+			  <script src="<c:url value='/template/admin/vendor/bootstrap/js/bootstrap.bundle.min.js'/>"></script>
+			
+			  <!-- Core plugin JavaScript-->
+			  <script src="<c:url value='/template/admin/vendor/jquery-easing/jquery.easing.min.js'/>"></script>
+			
+			  <!-- Page level plugin JavaScript-->
+			  <script src="<c:url value='/template/admin/vendor/chart.js/Chart.min.js'/>"></script>
+			  <script src="<c:url value='/template/admin/vendor/datatables/jquery.dataTables.js'/>"></script>
+			  <script src="<c:url value='/template/admin/vendor/datatables/dataTables.bootstrap4.js'/>"></script>
+			
+			  <!-- Custom scripts for all pages-->
+			  <script src="<c:url value='/template/admin/js/sb-admin.min.js'/>"></script>
+			
+			  <!-- Demo scripts for this page-->
+			  <script src="<c:url value='/template/admin/js/demo/datatables-demo.js'/>"></script>
+			  <script src="<c:url value='/template/admin/js/demo/chart-area-demo.js'/>"></script>
 	
-	<!-- page specific plugin scripts -->
-	<script src="<c:url value='/template/admin/assets/js/jquery-ui.min.js'/>"></script>
+
 </body>
 </html>

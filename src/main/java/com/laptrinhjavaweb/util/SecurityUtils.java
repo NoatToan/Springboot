@@ -23,7 +23,7 @@ public class SecurityUtils {
             results.add(authority.getAuthority());
             System.out.println("Role: "+ authority);
         }
-        System.out.println("Role:");
+
 		return results;
 	}
 }

@@ -3,6 +3,7 @@ package com.laptrinhjavaweb.controller.web;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
@@ -13,7 +14,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller(value = "homeControllerOfWeb")
 public class HomeController {
-
+	
+	@PreAuthorize("hasRole('ADMIN')")
 	@RequestMapping(value = "/trang-chu", method = RequestMethod.GET)
 	public ModelAndView homePage() {
 		ModelAndView mav = new ModelAndView("web/home");

@@ -31,6 +31,11 @@ public class UserEntity extends BaseEntity {
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), 
 								  inverseJoinColumns = @JoinColumn(name = "roleid"))
 	private List<RoleEntity> roles = new ArrayList<>();
+	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name = "user_permisson", joinColumns = @JoinColumn(name = "userid"), 
+								  inverseJoinColumns = @JoinColumn(name = "permissonid"))
+	private List<RoleEntity> permissons = new ArrayList<>();
 
 	public String getUserName() {
 		return userName;
